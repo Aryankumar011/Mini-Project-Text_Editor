@@ -3,9 +3,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
 import javafx.stage.Stage;
 
 public class Text_Editor extends Application{
@@ -28,7 +31,7 @@ public class Text_Editor extends Application{
       Menu Menu5 = new Menu("Test5");
       menuBar.getMenus().addAll(Menu1,Menu2,Menu3,Menu4,Menu5);
       borderPane.setTop(menuBar);
-      menuBar.setBorder();
+    //   menuBar.setBorder();
 
       MenuItem Mi11 = new MenuItem("MI11");
       MenuItem Mi12 = new MenuItem("MI12");
@@ -42,8 +45,11 @@ public class Text_Editor extends Application{
       
       MenuItem Mi51 = new MenuItem("MI11");
       MenuItem Mi52 = new MenuItem("MI12");
-
       Menu5.getItems().addAll(Mi51,Mi52);
+
+      TextArea textArea = new TextArea();
+      borderPane.setCenter(textArea);
+    textArea.setFont(Font.font("Times New Roman",FontPosture.ITALIC,20));
 
       
       scene.setFill(Color.AQUA);
