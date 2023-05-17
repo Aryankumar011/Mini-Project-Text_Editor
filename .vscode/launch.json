@@ -6,11 +6,18 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Text_Editor",
+            "request": "launch",
+            "mainClass": "Text_Editor",
+            "projectName": "Mini Project OOP-1_58a65e7d",
+            "vmArgs": "--module-path C:/javafx-sdk-20/lib --add-modules javafx.controls,javafx.fxml,javafx.media"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}",
             "vmArgs": "--module-path C:/javafx-sdk-20/lib --add-modules javafx.controls,javafx.fxml,javafx.media"
-
         },
         {
             "type": "java",
@@ -19,7 +26,6 @@
             "mainClass": "Main",
             "projectName": "Mini Project OOP-1_58a65e7d",
             "vmArgs": "--module-path C:/javafx-sdk-20/lib --add-modules javafx.controls,javafx.fxml,javafx.media"
-
         }
     ]
 }
