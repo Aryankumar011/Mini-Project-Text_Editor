@@ -2,6 +2,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
@@ -27,6 +28,24 @@ public class Text_Editor extends Application{
       Menu Menu5 = new Menu("Test5");
       menuBar.getMenus().addAll(Menu1,Menu2,Menu3,Menu4,Menu5);
       borderPane.setTop(menuBar);
+      menuBar.setBorder();
+
+      MenuItem Mi11 = new MenuItem("MI11");
+      MenuItem Mi12 = new MenuItem("MI12");
+      Menu Mi13 = new Menu("MI13");
+      Menu1.getItems().addAll(Mi11,Mi12,Mi13);
+
+      MenuItem Mi21 = new MenuItem("MI21");
+      MenuItem Mi22 = new MenuItem("MI22");
+      MenuItem Mi23 = new MenuItem("MI23");
+      Mi13.getItems().addAll(Mi21,Mi22,Mi23);
+      
+      MenuItem Mi51 = new MenuItem("MI11");
+      MenuItem Mi52 = new MenuItem("MI12");
+
+      Menu5.getItems().addAll(Mi51,Mi52);
+
+      
       scene.setFill(Color.AQUA);
       stage.show();
         
