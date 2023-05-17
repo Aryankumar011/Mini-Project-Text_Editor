@@ -1,11 +1,13 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -50,7 +52,12 @@ public class Text_Editor extends Application{
       TextArea textArea = new TextArea();
       borderPane.setCenter(textArea);
     textArea.setFont(Font.font("Times New Roman",FontPosture.ITALIC,20));
+        Label label = new Label("Available Files");
 
+        HBox hBox = new HBox(label);
+        hBox.setMinWidth(100);
+        borderPane.setRight(hBox);
+        
       
       scene.setFill(Color.AQUA);
       stage.show();
