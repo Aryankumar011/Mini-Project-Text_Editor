@@ -81,7 +81,7 @@ public class Text_Editor extends Application {
         MenuItem Mi12 = new MenuItem("Save");
         Mi12.setOnAction(e->{
             FileChooser Fc = new FileChooser();
-           FileChooser.ExtensionFilter fChooser = new FileChooser.ExtensionFilter("txt files", "*.txt");
+           FileChooser.ExtensionFilter fChooser = new FileChooser.ExtensionFilter("txt Files", "*.txt");
            File saveFile = Fc.showSaveDialog(null);
            
            try {
