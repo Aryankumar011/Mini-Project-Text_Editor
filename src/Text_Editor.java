@@ -1,3 +1,11 @@
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.nio.file.Files;
+import java.util.Scanner;
+
+import javax.swing.JFileChooser;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -11,12 +19,15 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class Text_Editor extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        
+        TextArea textArea = new TextArea();
         BorderPane borderPane = new BorderPane();
         Scene scene = new Scene(borderPane, 800, 600);
         stage.setScene(scene);
@@ -36,7 +47,54 @@ public class Text_Editor extends Application {
         // menuBar.setBorder();
        //1. File Menu
         MenuItem Mi11 = new MenuItem("Open");
+        Mi11.setOnAction(e->{
+        //     FileChooser Fc = new FileChooser();
+        // //    FileChooser.ExtensionFilter fChooser = new FileChooser.ExtensionFilter("txt files", "*.txt");
+        //    File saveFile = Fc.showSaveDialog(null);
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Text File");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
+        File selectedFile = fileChooser.showOpenDialog(stage); 
+           try {
+                //FileReader Fw= new FileReader(saveFile);
+                // File file = new File(fileChooser.getAbsolutePath());
+                // Scanner scanner = new Scanner(file);
+                // while (scanner.hasNextLine()) {
+                //     String line = scanner.nextLine();
+                //     textArea.appendText(line);
+                //     currentFile = selectedFile;
+                String content = new String(Files.readAllBytes(selectedFile.toPath()));
+                textArea.setText(content);
+               // currentFile = selectedFile;
+                }
+                
+                // file.close();
+
+            
+            catch(Exception e1) {
+                System.out.println(e1.getMessage());
+                // TODO: handle exception
+            }
+           
+        });
+
         MenuItem Mi12 = new MenuItem("Save");
+        Mi12.setOnAction(e->{
+            FileChooser Fc = new FileChooser();
+           FileChooser.ExtensionFilter fChooser = new FileChooser.ExtensionFilter("txt files", "*.txt");
+           File saveFile = Fc.showSaveDialog(null);
+           
+           try {
+                FileWriter Fw= new FileWriter(saveFile);
+                Fw.write(textArea.getText());
+                Fw.close();
+            } 
+            catch(Exception e1) {
+                System.out.println(e1.getMessage());
+                // TODO: handle exception
+            }
+           
+        });
         MenuItem Mi13 = new MenuItem("Save As");
         Menu Mi14 = new Menu("Print");
         Menu1.getItems().addAll(Mi11, Mi12, Mi13,Mi14);
@@ -55,7 +113,6 @@ public class Text_Editor extends Application {
         MenuItem Mi42 = new MenuItem("Zoom Out");
         Menu4.getItems().addAll(Mi41, Mi42);
 
-        TextArea textArea = new TextArea();
         borderPane.setCenter(textArea);
         textArea.setWrapText(true);
         textArea.setFont(Font.font("Times New Roman", FontPosture.ITALIC, 20));
