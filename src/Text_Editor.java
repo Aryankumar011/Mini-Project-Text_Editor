@@ -34,20 +34,26 @@ public class Text_Editor extends Application {
         menuBar.getMenus().addAll(Menu1, Menu2, Menu3, Menu4, Menu5);
         borderPane.setTop(menuBar);
         // menuBar.setBorder();
-
-        MenuItem Mi11 = new MenuItem("MI11");
-        MenuItem Mi12 = new MenuItem("MI12");
-        Menu Mi13 = new Menu("MI13");
-        Menu1.getItems().addAll(Mi11, Mi12, Mi13);
-
-        MenuItem Mi21 = new MenuItem("MI21");
-        MenuItem Mi22 = new MenuItem("MI22");
-        MenuItem Mi23 = new MenuItem("MI23");
-        Mi13.getItems().addAll(Mi21, Mi22, Mi23);
-
-        MenuItem Mi51 = new MenuItem("MI11");
-        MenuItem Mi52 = new MenuItem("MI12");
-        Menu5.getItems().addAll(Mi51, Mi52);
+       //1. File Menu
+        MenuItem Mi11 = new MenuItem("Open");
+        MenuItem Mi12 = new MenuItem("Save");
+        MenuItem Mi13 = new MenuItem("Save As");
+        Menu Mi14 = new Menu("Print");
+        Menu1.getItems().addAll(Mi11, Mi12, Mi13,Mi14);
+        // Edit Menu
+        MenuItem Mi21 = new MenuItem("Redo");
+        MenuItem Mi22 = new MenuItem("Undo");
+         MenuItem Mi23 = new MenuItem("Remove Line");
+        Menu2.getItems().addAll(Mi21, Mi22, Mi23);
+        // Format Menu
+        MenuItem Mi31 = new MenuItem("Change Font");
+        MenuItem Mi32 = new MenuItem("Change Color");
+        MenuItem Mi33 = new MenuItem("Change BackGroung Color");
+        Menu3.getItems().addAll(Mi31, Mi32,Mi33);
+        // View 
+        MenuItem Mi41 = new MenuItem("Zoom In");
+        MenuItem Mi42 = new MenuItem("Zoom Out");
+        Menu4.getItems().addAll(Mi41, Mi42);
 
         TextArea textArea = new TextArea();
         borderPane.setCenter(textArea);
